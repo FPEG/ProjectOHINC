@@ -2,7 +2,7 @@ function ThPoster() {
     this.async = false;
     this.return_data = [];
 }
-
+//commit test3
 ThPoster.prototype.sent = function (in_json, url, callback = undefined) {
     if (this.async === true) {
         //异步执行
