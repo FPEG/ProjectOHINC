@@ -15,6 +15,7 @@ include_once 'YmWordProperty.php';
 //var_dump('asd');
 //require_once(‘abc.php’);
 $return_data = [];
+//commit test
 $ymsql = new YmOhincMysql("localhost", "root", "AAdmin5!>", "ProjectOHINC_db");
 $sql = '';
 $glob_user_id = 1;
