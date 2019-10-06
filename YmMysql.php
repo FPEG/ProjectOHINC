@@ -5,7 +5,7 @@
  * Date: 2019/6/2
  * Time: 0:05
  */
-
+//commit test2
 class YmBaseMysql
 {
     var $mysqli;
