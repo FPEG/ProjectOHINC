@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英语单词</title>
+    <link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../jquery.notebook/jquery.notebook.min.css">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">-->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+</head>
+<body>
+<div id="top">
+    <div id="top__title">GPA</div>
+</div>
+<div id="nav">
+    <div class="nav__item">单词本</div>
+</div>
+<div id="main-wrapper">
+    <div id="main">
+        <div id="main__control">
+            <div class="list-container--control">
+                操作台
+            </div>
+            <div class="list-container--control">
+                <table id="main__control__table">
+                    <tr data-field="word">
+                        <td>单词</td>
+                        <td>
+                            <textarea class="ui-widget-content ui-corner-all" title="输入单词" name="word"></textarea>
+                        </td>
+                        <td>
+                            <button class="search" data-field="word">查重</button>
+                        </td>
+                    </tr>
+                    <tr data-field="user_tag">
+                        <td>标签</td>
+                        <td>
+                            <select></select>
+                            <br>
+                            <input class="ui-widget-content ui-corner-all" title="输入标签" name="user_tag">
+                        </td>
+                        <td>
+                            <button class="search">搜索</button>
+                            <button class="insert">插入</button>
+                        </td>
+                    </tr>
+                    <tr data-field="user_source">
+                        <td>来源</td>
+                        <td>
+                            <div class="ul"></div>
+                            <div class="ui-widget-content ui-corner-all div-input sub-source" data-index="1">root-root-r
+                            </div>
+                            <input class="ui-widget-content ui-corner-all" title="输入来源" name="user_source">
+                        </td>
+                        <td>
+                            <button class="search" data-field="user_source">搜索</button>
+                            <button class="insert" data-field="user_source">插入</button>
+                        </td>
+                    </tr>
+                    <!--<tr data-field="haici_level">-->
+                    <!--<td>难度</td>-->
+                    <!--<td><input class="ui-widget-content ui-corner-all" title="输入难度" name="haici_level"></td>-->
+                    <!--<td>-->
+                    <!--<button data-field="haici_level">搜索</button>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr data-field="user_forget">-->
+                    <!--<td>遗忘</td>-->
+                    <!--<td><input class="ui-widget-content ui-corner-all" title="输入遗忘" name="user_forget"></td>-->
+                    <!--<td>-->
+                    <!--<button class="search" data-field="user_forget">搜索</button>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                </table>
+            </div>
+            <div class="list-container--control">
+                <button class="list-btn" id="main__control__btn--submit">查找新单词</button>
+                <button class="list-btn" id="main__control__btn--search-cet">四六级词库检索</button>
+                <button class="list-btn" id="main__control__btn--exam">单元测试</button>
+                <button class="list-btn" id="main__control__btn--insert-only">只插入</button>
+                <button class="list-btn" id="main__control__btn--search-only">只搜索</button>
+            </div>
+            <div id="main__control__console">
+                <span>日志</span>
+                <br>
+            </div>
+        </div>
+        <div id="main__list">
+            <div class="list-item">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__word">test</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__field">test</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="list-item">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__word">test</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__field">test</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="main__result">
+            <div class="result-item multi" data-field="word">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">单词</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__value">
+                                test
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item multi" data-field="ipa">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">音标</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__value">
+                                test
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item multi" data-field="pron">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">发音</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__value">
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="test1">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">百度翻译</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td class="item__value">adj. 有义务的，有责任的|v. 动词obligate的过去式、过去分词|</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="test2">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__value">
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                                <div class="item__value__tag">tag2</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="test3">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="item__value">
+                                <div class="item__value__tag">tag1</div>
+                                <div class="item__value__tag">tag2</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="user_eg">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="padding-container">
+                                <div class="item__value">
+                                    <div class="item__value__flow--vertical">
+                                        <input class="ui-widget-content ui-corner-all item__value__eng-eg">
+                                        <input class="ui-widget-content ui-corner-all item__value__eng-word">
+                                        <button class="item__value__eg-submit-btn">提交</button>
+                                    </div>
+                                    <div class="item__value__flow--vertical">
+                                        <input class="ui-widget-content ui-corner-all item__value__chi-eg">
+                                        <input class="ui-widget-content ui-corner-all item__value__chi-word">
+                                        <button class="item__value__eg-cancel-btn">取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="user_eg">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="padding-container">
+                                <div class="item__value show">
+                                    <div class="item__value__flow--horizon">
+                                        <div class="ui-widget-content ui-corner-all div-input">gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                        </div>
+                                    </div>
+                                    <div class="item__value__flow--horizon pad">
+                                        <div class="ul"></div>
+                                        <div class="btn-wrapper">
+                                            <button class="item__value__eg-edit-btn">编辑</button>
+                                            <button class="item__value__eg-edit-source-btn">来源</button>
+                                        </div>
+                                    </div>
+                                    <div class="item__value__flow--horizon info">
+                                        <div class="ui-widget-content ui-corner-all div-input sub-source"
+                                             data-index="1">
+                                            root-root-r
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="user_eg">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="padding-container">
+                                <div class="item__value show">
+                                    <div class="item__value__flow--horizon">
+                                        <div class="ui-widget-content ui-corner-all div-input">gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                        </div>
+                                    </div>
+                                    <div class="item__value__flow--horizon pad">
+                                        <select></select>
+                                        <div class="btn-wrapper">
+                                            <button class="item__value__eg-edit-btn">编辑</button>
+                                            <button class="item__value__eg-edit-source-btn">来源</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="user_eg">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="padding-container">
+                                <div class="item__value show">
+                                    <div class="item__value__flow--horizon">
+                                        <div class="ui-widget-content ui-corner-all div-input">gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                        </div>
+                                    </div>
+                                    <div class="item__value__flow--horizon pad">
+                                        <select></select>
+                                        <div class="btn-wrapper">
+                                            <button class="item__value__eg-edit-btn">编辑</button>
+                                            <button class="item__value__eg-edit-source-btn">来源</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item__value show">
+                                    <div class="item__value__flow--horizon">
+                                        <div class="ui-widget-content ui-corner-all div-input">gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                        </div>
+                                    </div>
+                                    <div class="item__value__flow--horizon pad">
+                                        <select></select>
+                                        <div class="btn-wrapper">
+                                            <button class="item__value__eg-edit-btn">编辑</button>
+                                            <button class="item__value__eg-edit-source-btn">来源</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="result-item single" data-field="user_eg">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="item__field">标签</div>
+                        </td>
+                        <td class="spliter--table"></td>
+                        <td>
+                            <div class="padding-container">
+                                <div class="item__value show">
+                                    <div class="item__value__flow--horizon show">
+                                        <div class="ui-widget-content ui-corner-all div-input">gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                            gensokyo
+                                            gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo
+                                        </div>
+                                    </div>
+                                    <div class="item__value__flow--horizon pad">
+                                        <select></select>
+                                        <div class="btn-wrapper">
+                                            <button class="item__value__eg-edit-btn">编辑</button>
+                                            <button class="item__value__eg-edit-source-btn">来源</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--                            <div class="item__value show">-->
+                                <!--                                <div class="item__value__flow&#45;&#45;horizon">-->
+                                <!--                                    <div class="ui-widget-content ui-corner-all div-input">gensokyo gensokyo gensokyo-->
+                                <!--                                        gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo-->
+                                <!--                                        gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo-->
+                                <!--                                        gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo gensokyo-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="item__value__flow&#45;&#45;horizon pad">-->
+                                <!--                                    <select></select>-->
+                                <!--                                    <div class="btn-wrapper">-->
+                                <!--                                        <button class="item__value__eg-edit-btn">编辑</button>-->
+                                <!--                                        <button class="item__value__eg-edit-source-btn">来源</button>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
+                                <!--                            </div>-->
+                                <!--                            <div class="item__value edit">-->
+                                <!--                                <div class="item__value__flow&#45;&#45;vertical">-->
+                                <!--                                    <input class="ui-widget-content ui-corner-all item__value__eng-eg">-->
+                                <!--                                    <input class="ui-widget-content ui-corner-all item__value__eng-word">-->
+                                <!--                                    <button class="item__value__eg-submit-btn">提交</button>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="item__value__flow&#45;&#45;vertical">-->
+                                <!--                                    <input class="ui-widget-content ui-corner-all item__value__chi-eg">-->
+                                <!--                                    <input class="ui-widget-content ui-corner-all item__value__chi-word">-->
+                                <!--                                    <button class="item__value__eg-cancel-btn">取消</button>-->
+                                <!--                                </div>-->
+                                <!--                            </div>-->
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hidden">
+    <div id="hidden__dialog--new-tag"></div>
+    <div id="hidden__dialog--new-source"></div>
+    <div id="hidden__dialog--new-syno"></div>
+    <div id="hidden__dialog--quiz"></div>
+</div>
+</body>
+<link rel="stylesheet" type="text/css" href="index3.css">
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="../jquery-3.3.1.js"></script>
+<script src="../jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="../jquery.notebook/jquery.notebook.min.js"></script>
+
+<script type="text/javascript" src="base.js"></script>
+<script type="text/javascript" src="page1.js"></script>
+<script type="text/javascript" src="show1.js"></script>
+</html>
